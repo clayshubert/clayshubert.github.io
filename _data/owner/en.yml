@@ -2,7 +2,7 @@
 # Owner's Personal Information
 ###########################################################
 # This is your brand name
-brand: "PrivacyWire"
+brand: "Clay Shubert"
 
 # text below the brand name
 brand_sub_text: "$site_sample"
@@ -48,12 +48,12 @@ meta_common_description: "Your meta description."
 # the order of the items will be shown as here.
 # comment to remove any contact item
 contacts:
-  #- github: ""
-  #- email: ""
-  #- linkedin: ""
-  #- twitter: ""
+  - github: "clayshubert"
+  - email: "clayshubert@gmail.com"
+  - linkedin: "clayshubert"
+  - twitter: "clayshubert"
   #- mastodon: ""
-  #- instagram: ""
+  - instagram: "clayshubert"
   #- youtube: ""
   #- facebook: ""
 # to add more, check the _data/const/contact.yml file
