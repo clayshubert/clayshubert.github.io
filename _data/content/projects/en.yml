@@ -27,7 +27,7 @@ page_data:
     - type: id_python
       project_name: "Blackjack"
       project_excerpt: "Basic single player blackjack"
-      img: ":project1_thumb.jpg"
+      img: ":blackjack.png"
       img_title: "img title1"
       date: "2023-04-17"
       post: |
