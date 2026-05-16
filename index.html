@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ShubertNetworks</title>
+<title>@ayeeclay - ClayShubert</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@400;600;800&display=swap" rel="stylesheet">
 <style>
@@ -93,7 +93,7 @@
 <body>
 
 <nav>
-  <a href="index.html" class="nav-logo">Shubert<span>Networks</span></a>
+  <a href="index.html" class="nav-logo">Clay<span>Shubert</span></a>
   <ul>
     <li><a href="index.html" class="active">Feed</a></li>
     <li><a href="about.html">About</a></li>
@@ -105,17 +105,12 @@
 <div class="intro-strip">
   <div>
     <div class="intro-name">Clay <span>Shubert</span></div>
-    <p class="intro-bio">Security Engineer at Mercury Systems. Writing about threat intelligence, incident response, CTF challenges, and defensive security in the defense & aerospace space.</p>
+    <p class="intro-bio">Security Engineer at Mercury Systems. Writing about threat intelligence, incident response, CTF challenges, and defensive security.</p>
     <div class="social-links">
       <a href="mailto:clay@shubertnetworks.com" class="social-link">Email</a>
       <a href="https://www.linkedin.com/in/clayshubert" target="_blank" class="social-link">LinkedIn</a>
-      <a href="about.html" class="social-link">About & Resume</a>
+      <a href="about.html" class="social-link">About</a>
     </div>
-  </div>
-  <div class="intro-badge">
-    <div class="badge">DoD Secret Clearance</div>
-    <div class="badge badge-muted">ISC2 CC</div>
-    <div class="badge badge-muted">Mercury Systems</div>
   </div>
 </div>
 
@@ -137,14 +132,12 @@
       <div class="feed-item">
         <div class="feed-meta">
           <span class="feed-tag tag-ctf">CTF Writeup</span>
-          <span class="feed-date">May 2026</span>
+          <span class="feed-date">Feb 2022</span>
         </div>
-        <div class="feed-title">HackTheBox: Exploiting Misconfigured SIEM Alert Rules</div>
-        <p class="feed-excerpt">A walkthrough of a recent HTB challenge that abused overly permissive SIEM detection logic to evade endpoint monitoring — and what defenders can learn from it.</p>
+        <div class="feed-title">HackTheBox: Paper</div>
+        <p class="feed-excerpt">Paper is an easy Linux machine that features an Apache server on ports 80 and 443, which are serving the HTTP and HTTPS versions of a website respectively. The website on port 80 returns a default server webpage but the HTTP response header reveals a hidden domain. This hidden domain is running a WordPress blog, whose version is vulnerable to CVE-2019-17671. This vulnerability allows us to view the confidential information stored in the draft posts of the blog, which reveal another URL leading to an employee chat system. This chat system is based on Rocketchat. Reading through the chats we find that there is a bot running which can be queried for specific information. We can exploit the bot functionality to obtain the password of a user on the system. Further host enumeration reveals that the sudo version is vulnerable to CVE-2021-3560 and can be exploited to elevate to root privileges.</p>
         <div class="feed-footer">
           <div class="feed-pills">
-            <span class="pill">SIEM</span>
-            <span class="pill">Detection Evasion</span>
             <span class="pill">HackTheBox</span>
           </div>
           <span class="read-more">Read →</span>
@@ -154,75 +147,23 @@
       <div class="feed-item">
         <div class="feed-meta">
           <span class="feed-tag tag-blog">Blog</span>
-          <span class="feed-date">Apr 2026</span>
+          <span class="feed-date">May 2026</span>
         </div>
-        <div class="feed-title">Lessons from Deploying CrowdStrike EDR Across OT Environments</div>
-        <p class="feed-excerpt">Operational technology environments don't play nice with standard EDR tooling. Here's what I learned rolling out CrowdStrike across non-domain lab and OT systems at scale.</p>
+        <div class="feed-title">Lessons from Deploying CrowdStrike EDR</div>
+        <p class="feed-excerpt">Here's what I learned rolling out CrowdStrike across domain server, lab, and workstations systems at scale.</p>
         <div class="feed-footer">
           <div class="feed-pills">
             <span class="pill">EDR</span>
-            <span class="pill">OT Security</span>
             <span class="pill">CrowdStrike</span>
           </div>
           <span class="read-more">Read →</span>
         </div>
       </div>
-
-      <div class="feed-item">
-        <div class="feed-meta">
-          <span class="feed-tag tag-project">Project</span>
-          <span class="feed-date">Mar 2026</span>
-        </div>
-        <div class="feed-title">ThreatMap: Visualizing CTI Feed Coverage Gaps</div>
-        <p class="feed-excerpt">An open-source tool I built to map your active threat intelligence feeds against MITRE ATT&CK coverage and surface the gaps defenders should prioritize.</p>
-        <div class="feed-footer">
-          <div class="feed-pills">
-            <span class="pill">Python</span>
-            <span class="pill">MITRE ATT&CK</span>
-            <span class="pill">Open Source</span>
-          </div>
-          <span class="read-more">View project →</span>
-        </div>
-      </div>
-
-      <div class="feed-item">
-        <div class="feed-meta">
-          <span class="feed-tag tag-ctf">CTF Writeup</span>
-          <span class="feed-date">Feb 2026</span>
-        </div>
-        <div class="feed-title">PicoCTF 2026: Forensics & Memory Analysis Challenges</div>
-        <p class="feed-excerpt">Deep dive into the forensics track — covering memory dump analysis, network packet inspection, and recovering artifacts from a simulated ransomware incident.</p>
-        <div class="feed-footer">
-          <div class="feed-pills">
-            <span class="pill">Forensics</span>
-            <span class="pill">Volatility</span>
-            <span class="pill">PicoCTF</span>
-          </div>
-          <span class="read-more">Read →</span>
-        </div>
-      </div>
-
-      <div class="feed-item">
-        <div class="feed-meta">
-          <span class="feed-tag tag-blog">Blog</span>
-          <span class="feed-date">Jan 2026</span>
-        </div>
-        <div class="feed-title">CMMC Level 2: What 110 Controls Actually Looks Like in Practice</div>
-        <p class="feed-excerpt">Having gone through a JSVA audit and achieved full CMMC Level 2 compliance, here's an honest look at what the process demands from a security engineering perspective.</p>
-        <div class="feed-footer">
-          <div class="feed-pills">
-            <span class="pill">CMMC</span>
-            <span class="pill">Compliance</span>
-            <span class="pill">Defense</span>
-          </div>
-          <span class="read-more">Read →</span>
-        </div>
-      </div>
-
+     
     </div>
   </div>
 
-  <!-- SIDEBAR -->
+ 
   <aside class="sidebar">
     <div class="sidebar-block">
       <div class="sidebar-label">// Quick links</div>
@@ -236,29 +177,14 @@
       <div class="sidebar-label">// Topics</div>
       <div class="topic-list">
         <div>
-          <div class="topic-row"><span class="topic-name">Threat Intelligence</span><span class="topic-count">8</span></div>
-          <div class="topic-bar-wrap"><div class="topic-bar" style="width:90%"></div></div>
-        </div>
-        <div>
-          <div class="topic-row"><span class="topic-name">Incident Response</span><span class="topic-count">6</span></div>
-          <div class="topic-bar-wrap"><div class="topic-bar" style="width:70%"></div></div>
-        </div>
-        <div>
-          <div class="topic-row"><span class="topic-name">CTF Writeups</span><span class="topic-count">5</span></div>
+          <div class="topic-row"><span class="topic-name">CTF Writeups</span><span class="topic-count">1</span></div>
           <div class="topic-bar-wrap"><div class="topic-bar" style="width:60%"></div></div>
         </div>
         <div>
-          <div class="topic-row"><span class="topic-name">Endpoint / EDR</span><span class="topic-count">4</span></div>
+          <div class="topic-row"><span class="topic-name">Endpoint / EDR</span><span class="topic-count">1</span></div>
           <div class="topic-bar-wrap"><div class="topic-bar" style="width:45%"></div></div>
         </div>
-        <div>
-          <div class="topic-row"><span class="topic-name">Compliance</span><span class="topic-count">3</span></div>
-          <div class="topic-bar-wrap"><div class="topic-bar" style="width:35%"></div></div>
-        </div>
-        <div>
-          <div class="topic-row"><span class="topic-name">Projects & Tools</span><span class="topic-count">2</span></div>
-          <div class="topic-bar-wrap"><div class="topic-bar" style="width:25%"></div></div>
-        </div>
+     
       </div>
     </div>
   </aside>
