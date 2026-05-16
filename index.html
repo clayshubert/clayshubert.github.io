@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>@ayeeclay — Clay Shubert</title>
+<title>ShubertNetworks</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@400;600;800&display=swap" rel="stylesheet">
 <style>
@@ -13,219 +13,280 @@
     --text: #f0ede6; --muted: #777770; --heading: 'Syne', sans-serif; --mono: 'Space Mono', monospace;
   }
   body { background: var(--bg); color: var(--text); font-family: var(--mono); font-size: 14px; line-height: 1.6; min-height: 100vh; }
+
+  /* NAV */
   nav { position: sticky; top: 0; z-index: 100; background: var(--bg); border-bottom: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; padding: 1rem 2rem; }
-  .nav-logo { font-family: var(--heading); font-weight: 800; font-size: 18px; letter-spacing: -0.5px; }
+  .nav-logo { font-family: var(--heading); font-weight: 800; font-size: 18px; letter-spacing: -0.5px; text-decoration: none; color: var(--text); }
   .nav-logo span { color: var(--accent); }
   nav ul { list-style: none; display: flex; gap: 2rem; }
   nav a { color: var(--muted); text-decoration: none; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; transition: color 0.2s; }
-  nav a:hover { color: var(--accent); }
-  .hero { padding: 6rem 2rem 5rem; max-width: 900px; margin: 0 auto; }
-  .hero-tag { display: inline-block; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); border: 1px solid var(--accent); padding: 4px 10px; margin-bottom: 2rem; border-radius: 2px; }
-  .hero h1 { font-family: var(--heading); font-weight: 800; font-size: clamp(42px, 8vw, 80px); line-height: 0.95; letter-spacing: -2px; margin-bottom: 1.5rem; }
-  .hero h1 .line2 { color: var(--muted); }
-  .hero-bio { max-width: 520px; color: var(--muted); font-size: 14px; line-height: 1.8; margin-bottom: 2.5rem; }
-  .hero-cta { display: flex; gap: 1rem; flex-wrap: wrap; align-items: center; }
-  .btn-primary { background: var(--accent); color: #0a0a0a; font-family: var(--mono); font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; padding: 12px 24px; border: none; cursor: pointer; border-radius: 2px; transition: opacity 0.2s; text-decoration: none; display: inline-block; }
-  .btn-primary:hover { opacity: 0.85; }
-  .btn-secondary { background: transparent; color: var(--text); font-family: var(--mono); font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; padding: 12px 24px; border: 1px solid var(--border); cursor: pointer; border-radius: 2px; transition: border-color 0.2s; text-decoration: none; display: inline-block; }
-  .btn-secondary:hover { border-color: var(--text); }
-  .divider { border: none; border-top: 1px solid var(--border); margin: 0 2rem; }
-  section { max-width: 900px; margin: 0 auto; padding: 4rem 2rem; }
-  .section-label { font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); margin-bottom: 2rem; }
-  .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1px; border: 1px solid var(--border); }
-  .skill-cell { padding: 1.25rem; background: var(--surface); }
-  .skill-name { font-family: var(--heading); font-weight: 600; font-size: 13px; margin-bottom: 4px; }
-  .skill-level { font-size: 11px; color: var(--muted); letter-spacing: 0.06em; }
-  .skill-bar { margin-top: 10px; height: 2px; background: var(--border); border-radius: 1px; overflow: hidden; }
-  .skill-fill { height: 100%; background: var(--accent); border-radius: 1px; }
-  .exp-list { display: flex; flex-direction: column; gap: 0; }
-  .exp-row { padding: 1.5rem 0; border-bottom: 1px solid var(--border); }
-  .exp-row:first-child { border-top: 1px solid var(--border); }
-  .exp-header { display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem; margin-bottom: 0.5rem; flex-wrap: wrap; }
-  .exp-title { font-family: var(--heading); font-weight: 600; font-size: 16px; }
-  .exp-company { color: var(--accent); font-size: 13px; margin-bottom: 2px; }
-  .exp-date { font-size: 11px; color: var(--muted); letter-spacing: 0.06em; white-space: nowrap; }
-  .exp-bullets { list-style: none; margin-top: 0.75rem; display: flex; flex-direction: column; gap: 6px; }
-  .exp-bullets li { font-size: 12px; color: var(--muted); line-height: 1.7; padding-left: 1rem; position: relative; }
-  .exp-bullets li::before { content: '—'; position: absolute; left: 0; color: var(--accent); }
-  .cert-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1px; border: 1px solid var(--border); }
-  .cert-cell { padding: 1.25rem; background: var(--surface); }
-  .cert-name { font-family: var(--heading); font-weight: 600; font-size: 13px; margin-bottom: 4px; }
-  .cert-sub { font-size: 11px; color: var(--muted); }
-  .contact-block { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: start; }
-  .contact-heading { font-family: var(--heading); font-weight: 800; font-size: clamp(28px, 5vw, 48px); letter-spacing: -1px; line-height: 1; margin-bottom: 1rem; }
-  .contact-heading span { color: var(--accent); }
-  .contact-sub { color: var(--muted); font-size: 13px; line-height: 1.8; }
-  .links-list { list-style: none; }
-  .links-list li { border-bottom: 1px solid var(--border); }
-  .links-list a { display: flex; justify-content: space-between; align-items: center; padding: 14px 0; color: var(--text); text-decoration: none; font-size: 13px; letter-spacing: 0.04em; transition: color 0.15s; }
-  .links-list a:hover { color: var(--accent); }
-  .link-arrow { color: var(--muted); font-size: 16px; }
-  footer { border-top: 1px solid var(--border); padding: 1.5rem 2rem; display: flex; justify-content: space-between; align-items: center; font-size: 11px; color: var(--muted); letter-spacing: 0.06em; }
-  @media (max-width: 600px) { .contact-block { grid-template-columns: 1fr; } nav ul { gap: 1rem; } .exp-header { flex-direction: column; } }
+  nav a:hover, nav a.active { color: var(--accent); }
+
+  /* HERO STRIP */
+  .intro-strip { max-width: 900px; margin: 0 auto; padding: 3.5rem 2rem 2.5rem; display: grid; grid-template-columns: 1fr auto; gap: 2rem; align-items: center; border-bottom: 1px solid var(--border); }
+  .intro-name { font-family: var(--heading); font-weight: 800; font-size: clamp(28px, 5vw, 48px); letter-spacing: -1.5px; line-height: 1; margin-bottom: 0.6rem; }
+  .intro-name span { color: var(--accent); }
+  .intro-bio { color: var(--muted); font-size: 13px; line-height: 1.8; max-width: 480px; margin-bottom: 1.2rem; }
+  .social-links { display: flex; gap: 0.75rem; flex-wrap: wrap; }
+  .social-link { font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); text-decoration: none; border: 1px solid var(--border); padding: 5px 12px; border-radius: 2px; transition: color 0.2s, border-color 0.2s; }
+  .social-link:hover { color: var(--accent); border-color: var(--accent); }
+  .intro-badge { display: flex; flex-direction: column; align-items: flex-end; gap: 0.5rem; }
+  .badge { font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); border: 1px solid var(--accent); padding: 4px 10px; border-radius: 2px; white-space: nowrap; }
+  .badge-muted { border-color: var(--border); color: var(--muted); }
+
+  /* LAYOUT */
+  .main-layout { max-width: 900px; margin: 0 auto; padding: 3rem 2rem; display: grid; grid-template-columns: 1fr 260px; gap: 3rem; align-items: start; }
+
+  /* FEED */
+  .feed-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 1.5rem; }
+  .section-label { font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); }
+  .filter-tabs { display: flex; gap: 0; }
+  .filter-tab { font-family: var(--mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; padding: 5px 12px; background: transparent; border: 1px solid var(--border); color: var(--muted); cursor: pointer; transition: all 0.15s; margin-left: -1px; }
+  .filter-tab:first-child { border-radius: 2px 0 0 2px; }
+  .filter-tab:last-child { border-radius: 0 2px 2px 0; }
+  .filter-tab.active, .filter-tab:hover { background: var(--surface); color: var(--text); border-color: var(--text); z-index: 1; position: relative; }
+  .filter-tab.active { color: var(--accent); border-color: var(--accent); }
+
+  .feed { display: flex; flex-direction: column; }
+  .feed-item { padding: 1.5rem 0; border-bottom: 1px solid var(--border); cursor: pointer; }
+  .feed-item:first-child { border-top: 1px solid var(--border); }
+  .feed-item:hover .feed-title { color: var(--accent); }
+  .feed-meta { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.5rem; }
+  .feed-tag { font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; padding: 2px 8px; border-radius: 2px; }
+  .tag-ctf { background: rgba(232,255,60,0.1); color: var(--accent); }
+  .tag-blog { background: rgba(100,180,255,0.1); color: #64b4ff; }
+  .tag-project { background: rgba(180,100,255,0.1); color: #b464ff; }
+  .feed-date { font-size: 11px; color: var(--muted); }
+  .feed-title { font-family: var(--heading); font-weight: 600; font-size: 17px; margin-bottom: 0.4rem; transition: color 0.15s; }
+  .feed-excerpt { font-size: 12px; color: var(--muted); line-height: 1.8; margin-bottom: 0.75rem; }
+  .feed-footer { display: flex; align-items: center; justify-content: space-between; }
+  .feed-pills { display: flex; gap: 6px; flex-wrap: wrap; }
+  .pill { font-size: 10px; letter-spacing: 0.05em; text-transform: uppercase; padding: 2px 8px; border: 1px solid var(--border); color: var(--muted); border-radius: 2px; }
+  .read-more { font-size: 11px; color: var(--muted); letter-spacing: 0.06em; text-transform: uppercase; transition: color 0.15s; }
+  .feed-item:hover .read-more { color: var(--accent); }
+
+  /* SIDEBAR */
+  .sidebar { display: flex; flex-direction: column; gap: 2rem; }
+  .sidebar-block { border: 1px solid var(--border); background: var(--surface); padding: 1.25rem; border-radius: 2px; }
+  .sidebar-label { font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); margin-bottom: 1rem; }
+  .sidebar-link { display: flex; justify-content: space-between; align-items: center; padding: 8px 0; border-bottom: 1px solid var(--border); font-size: 12px; color: var(--text); text-decoration: none; transition: color 0.15s; }
+  .sidebar-link:last-child { border-bottom: none; padding-bottom: 0; }
+  .sidebar-link:hover { color: var(--accent); }
+  .sidebar-arrow { color: var(--muted); font-size: 14px; }
+  .topic-list { display: flex; flex-direction: column; gap: 6px; }
+  .topic-row { display: flex; justify-content: space-between; align-items: center; font-size: 12px; padding: 4px 0; }
+  .topic-name { color: var(--muted); }
+  .topic-count { font-size: 10px; color: var(--accent); font-weight: 700; }
+  .topic-bar-wrap { margin-top: 4px; height: 1px; background: var(--border); }
+  .topic-bar { height: 100%; background: var(--accent); opacity: 0.4; }
+
+  footer { border-top: 1px solid var(--border); padding: 1.5rem 2rem; display: flex; justify-content: space-between; align-items: center; font-size: 11px; color: var(--muted); letter-spacing: 0.06em; max-width: 100%; }
+
+  @media (max-width: 700px) {
+    .main-layout { grid-template-columns: 1fr; }
+    .sidebar { display: none; }
+    .intro-strip { grid-template-columns: 1fr; }
+    .intro-badge { align-items: flex-start; flex-direction: row; }
+  }
 </style>
 </head>
 <body>
 
 <nav>
-  <div class="nav-logo">@ayeeclay - Clay<span>Shubert</span></div>
+  <a href="index.html" class="nav-logo">Shubert<span>Networks</span></a>
   <ul>
-    <li><a href="#about">About</a></li>
-    <li><a href="#experience">Experience</a></li>
-    <li><a href="#contact">Contact</a></li>
+    <li><a href="index.html" class="active">Feed</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="mailto:clay@shubertnetworks.com">Contact</a></li>
   </ul>
-</nav>x
+</nav>
 
-<div class="hero" id="about">
-  <div class="hero-tag">Security Engineer // DoD </div>
-  <h1>
-    Clay Shubert<br>
-    <span class="line2">secures what<br>matters most.</span>
-  </h1>
-  <p class="hero-bio">
-    Cybersecurity professional specializing in Incident Response, Endpoint Security, Data Security, and Threat Management. Currently at Mercury Systems in Huntsville, AL — protecting defense and aerospace systems against advanced threats.
-  </p>
-  <div class="hero-cta">
-    <a href="#experience" class="btn-primary">View experience</a>
-    <a href="resume.pdf" class="btn-secondary">Download resume</a>
+<!-- INTRO STRIP -->
+<div class="intro-strip">
+  <div>
+    <div class="intro-name">Clay <span>Shubert</span></div>
+    <p class="intro-bio">Security Engineer at Mercury Systems. Writing about threat intelligence, incident response, CTF challenges, and defensive security in the defense & aerospace space.</p>
+    <div class="social-links">
+      <a href="mailto:clay@shubertnetworks.com" class="social-link">Email</a>
+      <a href="https://www.linkedin.com/in/clayshubert" target="_blank" class="social-link">LinkedIn</a>
+      <a href="about.html" class="social-link">About & Resume</a>
+    </div>
+  </div>
+  <div class="intro-badge">
+    <div class="badge">DoD Secret Clearance</div>
+    <div class="badge badge-muted">ISC2 CC</div>
+    <div class="badge badge-muted">Mercury Systems</div>
   </div>
 </div>
 
-<hr class="divider">
-
-<section id="experience">
-  <div class="section-label">// Skills &amp; tools</div>
-  <div class="skills-grid">
-    <div class="skill-cell">
-      <div class="skill-name">SIEM Platforms</div>
-      <div class="skill-level">Expert</div>
-      <div class="skill-bar"><div class="skill-fill" style="width:95%"></div></div>
-    </div>
-    <div class="skill-cell">
-      <div class="skill-name">Endpoint (EDR)</div>
-      <div class="skill-level">Expert</div>
-      <div class="skill-bar"><div class="skill-fill" style="width:93%"></div></div>
-    </div>
-    <div class="skill-cell">
-      <div class="skill-name">Incident Response</div>
-      <div class="skill-level">Expert</div>
-      <div class="skill-bar"><div class="skill-fill" style="width:92%"></div></div>
-    </div>
-    <div class="skill-cell">
-      <div class="skill-name">Threat Intelligence</div>
-      <div class="skill-level">Advanced</div>
-      <div class="skill-bar"><div class="skill-fill" style="width:88%"></div></div>
-    </div>
-    <div class="skill-cell">
-      <div class="skill-name">Data Security</div>
-      <div class="skill-level">Advanced</div>
-      <div class="skill-bar"><div class="skill-fill" style="width:82%"></div></div>
-    </div>
-    <div class="skill-cell">
-      <div class="skill-name">Python / Bash</div>
-      <div class="skill-level">Proficient</div>
-      <div class="skill-bar"><div class="skill-fill" style="width:75%"></div></div>
-    </div>
-  </div>
-</section>
-
-<hr class="divider">
-
-<section>
-  <div class="section-label">// Professional experience</div>
-  <div class="exp-list">
-    <div class="exp-row">
-      <div class="exp-header">
-        <div>
-          <div class="exp-company">Mercury Systems — Huntsville, AL</div>
-          <div class="exp-title">Security Engineer</div>
-        </div>
-        <div class="exp-date">Dec 2023 – Present</div>
+<!-- MAIN LAYOUT -->
+<div class="main-layout">
+  <div>
+    <div class="feed-header">
+      <div class="section-label">// Latest posts</div>
+      <div class="filter-tabs">
+        <button class="filter-tab active">All</button>
+        <button class="filter-tab">CTF</button>
+        <button class="filter-tab">Blog</button>
+        <button class="filter-tab">Projects</button>
       </div>
-      <ul class="exp-bullets">
-        <li>Continuous monitoring and incident response; build custom detections based on adversary TTPs.</li>
-        <li>Program lead on Incident Response, Endpoint Security, and Threat Management initiatives.</li>
-        <li>Led CrowdStrike EDR deployment across the entire organization.</li>
-        <li>Deployed Microsoft Purview for DLP, data marking, and regulatory compliance.</li>
-        <li>Participated in JSVA audit for CMMC Level 2 — achieved adherence to all 110 security controls.</li>
-        <li>Experience managing firewall configurations, patching, and rule creation.</li>
-      </ul>
     </div>
-    <div class="exp-row">
-      <div class="exp-header">
-        <div>
-          <div class="exp-company">Avertium Cybersecurity — Knoxville, TN</div>
-          <div class="exp-title">SOC Cybersecurity Analyst Intern</div>
+
+    <div class="feed">
+
+      <div class="feed-item">
+        <div class="feed-meta">
+          <span class="feed-tag tag-ctf">CTF Writeup</span>
+          <span class="feed-date">May 2026</span>
         </div>
-        <div class="exp-date">May 2021 – Dec 2023</div>
-      </div>
-      <ul class="exp-bullets">
-        <li>Investigated security alerts across Microsoft Sentinel, FortiSIEM, LogRhythm, and AlienVault USM.</li>
-        <li>Communicated escalations to clients via detailed reports and direct engagement for swift IR mitigation.</li>
-        <li>Analyzed suspicious behaviors using open source tool kits and sandbox environments.</li>
-      </ul>
-    </div>
-  </div>
-</section>
-
-<hr class="divider">
-
-<section>
-  <div class="section-label">// Community &amp; Memberships</div>
-  <div class="exp-list">
-    <div class="exp-row">
-      <div class="exp-header">
-        <div>
-          <div class="exp-company">ND-ISAC — Huntsville, AL</div>
-          <div class="exp-title">Collaborative Member, Data Security, Threat Hunting &amp; Cybersecurity Regulations WGs</div>
+        <div class="feed-title">HackTheBox: Exploiting Misconfigured SIEM Alert Rules</div>
+        <p class="feed-excerpt">A walkthrough of a recent HTB challenge that abused overly permissive SIEM detection logic to evade endpoint monitoring — and what defenders can learn from it.</p>
+        <div class="feed-footer">
+          <div class="feed-pills">
+            <span class="pill">SIEM</span>
+            <span class="pill">Detection Evasion</span>
+            <span class="pill">HackTheBox</span>
+          </div>
+          <span class="read-more">Read →</span>
         </div>
-        <div class="exp-date">2023 – Present</div>
       </div>
-      <ul class="exp-bullets">
-        <li>Collaborate with Defense and Aerospace industry partners.</li>
-        <li>Tiger Team contributor producing white paper on data protection and data security in Aerospace/Defense.</li>
-      </ul>
-    </div>
-</section>
 
-<hr class="divider">
+      <div class="feed-item">
+        <div class="feed-meta">
+          <span class="feed-tag tag-blog">Blog</span>
+          <span class="feed-date">Apr 2026</span>
+        </div>
+        <div class="feed-title">Lessons from Deploying CrowdStrike EDR Across OT Environments</div>
+        <p class="feed-excerpt">Operational technology environments don't play nice with standard EDR tooling. Here's what I learned rolling out CrowdStrike across non-domain lab and OT systems at scale.</p>
+        <div class="feed-footer">
+          <div class="feed-pills">
+            <span class="pill">EDR</span>
+            <span class="pill">OT Security</span>
+            <span class="pill">CrowdStrike</span>
+          </div>
+          <span class="read-more">Read →</span>
+        </div>
+      </div>
 
-<section>
-  <div class="section-label">// Certifications &amp; education</div>
-  <div class="cert-grid">
-    <div class="cert-cell">
-      <div class="cert-name">ISC2 CC</div>
-      <div class="cert-sub">Certified in Cybersecurity</div>
-    </div>
-    <div class="cert-cell">
-      <div class="cert-name">MS &amp; BS, Computer Engineering</div>
-      <div class="cert-sub">University of Tennessee, Knoxville // Cybersecurity and Datacenter Management concentration</div>
+      <div class="feed-item">
+        <div class="feed-meta">
+          <span class="feed-tag tag-project">Project</span>
+          <span class="feed-date">Mar 2026</span>
+        </div>
+        <div class="feed-title">ThreatMap: Visualizing CTI Feed Coverage Gaps</div>
+        <p class="feed-excerpt">An open-source tool I built to map your active threat intelligence feeds against MITRE ATT&CK coverage and surface the gaps defenders should prioritize.</p>
+        <div class="feed-footer">
+          <div class="feed-pills">
+            <span class="pill">Python</span>
+            <span class="pill">MITRE ATT&CK</span>
+            <span class="pill">Open Source</span>
+          </div>
+          <span class="read-more">View project →</span>
+        </div>
+      </div>
+
+      <div class="feed-item">
+        <div class="feed-meta">
+          <span class="feed-tag tag-ctf">CTF Writeup</span>
+          <span class="feed-date">Feb 2026</span>
+        </div>
+        <div class="feed-title">PicoCTF 2026: Forensics & Memory Analysis Challenges</div>
+        <p class="feed-excerpt">Deep dive into the forensics track — covering memory dump analysis, network packet inspection, and recovering artifacts from a simulated ransomware incident.</p>
+        <div class="feed-footer">
+          <div class="feed-pills">
+            <span class="pill">Forensics</span>
+            <span class="pill">Volatility</span>
+            <span class="pill">PicoCTF</span>
+          </div>
+          <span class="read-more">Read →</span>
+        </div>
+      </div>
+
+      <div class="feed-item">
+        <div class="feed-meta">
+          <span class="feed-tag tag-blog">Blog</span>
+          <span class="feed-date">Jan 2026</span>
+        </div>
+        <div class="feed-title">CMMC Level 2: What 110 Controls Actually Looks Like in Practice</div>
+        <p class="feed-excerpt">Having gone through a JSVA audit and achieved full CMMC Level 2 compliance, here's an honest look at what the process demands from a security engineering perspective.</p>
+        <div class="feed-footer">
+          <div class="feed-pills">
+            <span class="pill">CMMC</span>
+            <span class="pill">Compliance</span>
+            <span class="pill">Defense</span>
+          </div>
+          <span class="read-more">Read →</span>
+        </div>
+      </div>
+
     </div>
   </div>
-</section>
 
-<hr class="divider">
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="sidebar-block">
+      <div class="sidebar-label">// Quick links</div>
+      <a href="about.html" class="sidebar-link">About & experience <span class="sidebar-arrow">→</span></a>
+      <a href="about.html" class="sidebar-link">Download resume <span class="sidebar-arrow">↓</span></a>
+      <a href="https://www.linkedin.com/in/clayshubert" target="_blank" class="sidebar-link">LinkedIn <span class="sidebar-arrow">↗</span></a>
+      <a href="mailto:clay@shubertnetworks.com" class="sidebar-link">clay@shubertnetworks.com <span class="sidebar-arrow">↗</span></a>
+    </div>
 
-<section id="contact">
-  <div class="section-label">// Get in touch</div>
-  <div class="contact-block">
-    <div>
-      <div class="contact-heading">Let's<br><span>connect.</span></div>
-      <p class="contact-sub">Reach out via email or connect on LinkedIn.</p>
+    <div class="sidebar-block">
+      <div class="sidebar-label">// Topics</div>
+      <div class="topic-list">
+        <div>
+          <div class="topic-row"><span class="topic-name">Threat Intelligence</span><span class="topic-count">8</span></div>
+          <div class="topic-bar-wrap"><div class="topic-bar" style="width:90%"></div></div>
+        </div>
+        <div>
+          <div class="topic-row"><span class="topic-name">Incident Response</span><span class="topic-count">6</span></div>
+          <div class="topic-bar-wrap"><div class="topic-bar" style="width:70%"></div></div>
+        </div>
+        <div>
+          <div class="topic-row"><span class="topic-name">CTF Writeups</span><span class="topic-count">5</span></div>
+          <div class="topic-bar-wrap"><div class="topic-bar" style="width:60%"></div></div>
+        </div>
+        <div>
+          <div class="topic-row"><span class="topic-name">Endpoint / EDR</span><span class="topic-count">4</span></div>
+          <div class="topic-bar-wrap"><div class="topic-bar" style="width:45%"></div></div>
+        </div>
+        <div>
+          <div class="topic-row"><span class="topic-name">Compliance</span><span class="topic-count">3</span></div>
+          <div class="topic-bar-wrap"><div class="topic-bar" style="width:35%"></div></div>
+        </div>
+        <div>
+          <div class="topic-row"><span class="topic-name">Projects & Tools</span><span class="topic-count">2</span></div>
+          <div class="topic-bar-wrap"><div class="topic-bar" style="width:25%"></div></div>
+        </div>
+      </div>
     </div>
-    <div>
-      <ul class="links-list">
-        <li><a href="mailto:clay@shubertnetworks.com">clay@shubertnetworks.com <span class="link-arrow">↗</span></a></li>
-        <li><a href="https://www.linkedin.com/in/clayshubert" target="_blank">LinkedIn <span class="link-arrow">↗</span></a></li>
-      </ul>
-    </div>
-  </div>
-</section>
+  </aside>
+</div>
 
 <footer>
   <span>© 2026 Clay Shubert</span>
   <span>ShubertNetworks</span>
 </footer>
+
+<script>
+  const tabs = document.querySelectorAll('.filter-tab');
+  const items = document.querySelectorAll('.feed-item');
+  const tagMap = { 'CTF': 'tag-ctf', 'Blog': 'tag-blog', 'Projects': 'tag-project' };
+
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      tabs.forEach(t => t.classList.remove('active'));
+      tab.classList.add('active');
+      const filter = tab.textContent.trim();
+      items.forEach(item => {
+        if (filter === 'All') { item.style.display = ''; return; }
+        const hasTag = item.querySelector('.' + tagMap[filter]);
+        item.style.display = hasTag ? '' : 'none';
+      });
+    });
+  });
+</script>
 
 </body>
 </html>

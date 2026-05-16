@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About — ShubertNetworks</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --bg: #0a0a0a; --surface: #111111; --border: #222222; --accent: #e8ff3c;
+    --text: #f0ede6; --muted: #777770; --heading: 'Syne', sans-serif; --mono: 'Space Mono', monospace;
+  }
+  body { background: var(--bg); color: var(--text); font-family: var(--mono); font-size: 14px; line-height: 1.6; min-height: 100vh; }
+  nav { position: sticky; top: 0; z-index: 100; background: var(--bg); border-bottom: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; padding: 1rem 2rem; }
+  .nav-logo { font-family: var(--heading); font-weight: 800; font-size: 18px; letter-spacing: -0.5px; text-decoration: none; color: var(--text); }
+  .nav-logo span { color: var(--accent); }
+  nav ul { list-style: none; display: flex; gap: 2rem; }
+  nav a { color: var(--muted); text-decoration: none; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; transition: color 0.2s; }
+  nav a:hover, nav a.active { color: var(--accent); }
+
+  .hero { padding: 5rem 2rem 4rem; max-width: 900px; margin: 0 auto; }
+  .hero-tag { display: inline-block; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); border: 1px solid var(--accent); padding: 4px 10px; margin-bottom: 2rem; border-radius: 2px; }
+  .hero h1 { font-family: var(--heading); font-weight: 800; font-size: clamp(42px, 8vw, 80px); line-height: 0.95; letter-spacing: -2px; margin-bottom: 1.5rem; }
+  .hero h1 .line2 { color: var(--muted); }
+  .hero-bio { max-width: 520px; color: var(--muted); font-size: 14px; line-height: 1.8; margin-bottom: 2.5rem; }
+  .hero-cta { display: flex; gap: 1rem; flex-wrap: wrap; align-items: center; }
+  .btn-primary { background: var(--accent); color: #0a0a0a; font-family: var(--mono); font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; padding: 12px 24px; border: none; cursor: pointer; border-radius: 2px; transition: opacity 0.2s; text-decoration: none; display: inline-block; }
+  .btn-primary:hover { opacity: 0.85; }
+  .btn-secondary { background: transparent; color: var(--text); font-family: var(--mono); font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; padding: 12px 24px; border: 1px solid var(--border); cursor: pointer; border-radius: 2px; transition: border-color 0.2s; text-decoration: none; display: inline-block; }
+  .btn-secondary:hover { border-color: var(--text); }
+
+  .divider { border: none; border-top: 1px solid var(--border); margin: 0 2rem; }
+  section { max-width: 900px; margin: 0 auto; padding: 4rem 2rem; }
+  .section-label { font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); margin-bottom: 2rem; }
+
+  .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1px; border: 1px solid var(--border); }
+  .skill-cell { padding: 1.25rem; background: var(--surface); }
+  .skill-name { font-family: var(--heading); font-weight: 600; font-size: 13px; margin-bottom: 4px; }
+  .skill-level { font-size: 11px; color: var(--muted); letter-spacing: 0.06em; }
+  .skill-bar { margin-top: 10px; height: 2px; background: var(--border); border-radius: 1px; overflow: hidden; }
+  .skill-fill { height: 100%; background: var(--accent); border-radius: 1px; }
+
+  .exp-list { display: flex; flex-direction: column; }
+  .exp-row { padding: 1.5rem 0; border-bottom: 1px solid var(--border); }
+  .exp-row:first-child { border-top: 1px solid var(--border); }
+  .exp-header { display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem; margin-bottom: 0.5rem; flex-wrap: wrap; }
+  .exp-title { font-family: var(--heading); font-weight: 600; font-size: 16px; }
+  .exp-company { color: var(--accent); font-size: 13px; margin-bottom: 2px; }
+  .exp-date { font-size: 11px; color: var(--muted); letter-spacing: 0.06em; white-space: nowrap; }
+  .exp-bullets { list-style: none; margin-top: 0.75rem; display: flex; flex-direction: column; gap: 6px; }
+  .exp-bullets li { font-size: 12px; color: var(--muted); line-height: 1.7; padding-left: 1rem; position: relative; }
+  .exp-bullets li::before { content: '—'; position: absolute; left: 0; color: var(--accent); }
+
+  .cert-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1px; border: 1px solid var(--border); }
+  .cert-cell { padding: 1.25rem; background: var(--surface); }
+  .cert-name { font-family: var(--heading); font-weight: 600; font-size: 13px; margin-bottom: 4px; }
+  .cert-sub { font-size: 11px; color: var(--muted); }
+
+  .contact-block { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: start; }
+  .contact-heading { font-family: var(--heading); font-weight: 800; font-size: clamp(28px, 5vw, 48px); letter-spacing: -1px; line-height: 1; margin-bottom: 1rem; }
+  .contact-heading span { color: var(--accent); }
+  .contact-sub { color: var(--muted); font-size: 13px; line-height: 1.8; }
+  .links-list { list-style: none; }
+  .links-list li { border-bottom: 1px solid var(--border); }
+  .links-list a { display: flex; justify-content: space-between; align-items: center; padding: 14px 0; color: var(--text); text-decoration: none; font-size: 13px; letter-spacing: 0.04em; transition: color 0.15s; }
+  .links-list a:hover { color: var(--accent); }
+  .link-arrow { color: var(--muted); font-size: 16px; }
+
+  footer { border-top: 1px solid var(--border); padding: 1.5rem 2rem; display: flex; justify-content: space-between; align-items: center; font-size: 11px; color: var(--muted); letter-spacing: 0.06em; }
+
+  @media (max-width: 600px) { .contact-block { grid-template-columns: 1fr; } nav ul { gap: 1rem; } .exp-header { flex-direction: column; } }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">Shubert<span>Networks</span></a>
+  <ul>
+    <li><a href="index.html">Feed</a></li>
+    <li><a href="about.html" class="active">About</a></li>
+    <li><a href="mailto:clay@shubertnetworks.com">Contact</a></li>
+  </ul>
+</nav>
+
+<div class="hero">
+  <div class="hero-tag">Security Engineer // DoD Secret Clearance</div>
+  <h1>
+    Clay Shubert<br>
+    <span class="line2">secures what<br>matters most.</span>
+  </h1>
+  <p class="hero-bio">
+    Cybersecurity professional specializing in threat intelligence, endpoint security, and incident response. Currently at Mercury Systems in Huntsville, AL — protecting defense and aerospace systems against advanced threats.
+  </p>
+  <div class="hero-cta">
+    <a href="#experience" class="btn-primary">View experience</a>
+    <a href="resume.pdf" class="btn-secondary">Download resume</a>
+  </div>
+</div>
+
+<hr class="divider">
+
+<section id="experience">
+  <div class="section-label">// Skills &amp; tools</div>
+  <div class="skills-grid">
+    <div class="skill-cell">
+      <div class="skill-name">SIEM Platforms</div>
+      <div class="skill-level">Expert</div>
+      <div class="skill-bar"><div class="skill-fill" style="width:95%"></div></div>
+    </div>
+    <div class="skill-cell">
+      <div class="skill-name">Endpoint (EDR)</div>
+      <div class="skill-level">Expert</div>
+      <div class="skill-bar"><div class="skill-fill" style="width:93%"></div></div>
+    </div>
+    <div class="skill-cell">
+      <div class="skill-name">Incident Response</div>
+      <div class="skill-level">Expert</div>
+      <div class="skill-bar"><div class="skill-fill" style="width:92%"></div></div>
+    </div>
+    <div class="skill-cell">
+      <div class="skill-name">Threat Intelligence</div>
+      <div class="skill-level">Advanced</div>
+      <div class="skill-bar"><div class="skill-fill" style="width:88%"></div></div>
+    </div>
+    <div class="skill-cell">
+      <div class="skill-name">Data Security</div>
+      <div class="skill-level">Advanced</div>
+      <div class="skill-bar"><div class="skill-fill" style="width:82%"></div></div>
+    </div>
+    <div class="skill-cell">
+      <div class="skill-name">Python / Bash</div>
+      <div class="skill-level">Proficient</div>
+      <div class="skill-bar"><div class="skill-fill" style="width:75%"></div></div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<section>
+  <div class="section-label">// Professional experience</div>
+  <div class="exp-list">
+    <div class="exp-row">
+      <div class="exp-header">
+        <div>
+          <div class="exp-company">Mercury Systems — Huntsville, AL</div>
+          <div class="exp-title">Security Engineer</div>
+        </div>
+        <div class="exp-date">Dec 2023 – Present</div>
+      </div>
+      <ul class="exp-bullets">
+        <li>Continuous monitoring and incident response; custom detections built on threat intelligence TTPs.</li>
+        <li>Program lead on insider threat, endpoint security, and threat management initiatives.</li>
+        <li>Led CrowdStrike EDR deployment across the entire org, including non-domain lab and OT systems.</li>
+        <li>Deployed Microsoft Purview for DLP, data marking, and regulatory compliance.</li>
+        <li>Participated in JSVA audit for CMMC Level 2 — achieved adherence to all 110 security controls.</li>
+        <li>Managed Checkpoint firewall configurations: patching, rule creation, and risk assessments.</li>
+        <li>Developed disaster recovery and incident response plans.</li>
+      </ul>
+    </div>
+    <div class="exp-row">
+      <div class="exp-header">
+        <div>
+          <div class="exp-company">Avertium Cybersecurity — Knoxville, TN</div>
+          <div class="exp-title">SOC Cybersecurity Analyst Intern</div>
+        </div>
+        <div class="exp-date">May 2021 – Dec 2023</div>
+      </div>
+      <ul class="exp-bullets">
+        <li>Investigated security alerts across Microsoft Sentinel, FortiSIEM, LogRhythm, and AlienVault USM.</li>
+        <li>Communicated escalations to clients via detailed reports and direct engagement for swift EDR mitigation.</li>
+        <li>Analyzed suspicious behaviors using advanced toolkits and sandbox environments.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<section>
+  <div class="section-label">// Community &amp; memberships</div>
+  <div class="exp-list">
+    <div class="exp-row">
+      <div class="exp-header">
+        <div>
+          <div class="exp-company">ND-ISAC — Huntsville, AL</div>
+          <div class="exp-title">Collaborative Member, Threat Hunting &amp; Cybersecurity Regulations WGs</div>
+        </div>
+        <div class="exp-date">2023 – Present</div>
+      </div>
+      <ul class="exp-bullets">
+        <li>Collaborating on OpenCTI threat intelligence reports with Defense and Aerospace industry partners.</li>
+        <li>Tiger Team contributor producing white paper on data protection in Aerospace/Defense.</li>
+        <li>Contributing to comment periods on US DFAR regulations impacting the Defense industry.</li>
+      </ul>
+    </div>
+    <div class="exp-row">
+      <div class="exp-header">
+        <div>
+          <div class="exp-company">DoD Cyber Crime Center (DC3) — Huntsville, AL</div>
+          <div class="exp-title">Member</div>
+        </div>
+        <div class="exp-date">2023 – Present</div>
+      </div>
+      <ul class="exp-bullets">
+        <li>Receives threat reports and IoCs from active DC3 investigations.</li>
+        <li>Participates in webinar training on threat intelligence and hunting.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<section>
+  <div class="section-label">// Certifications &amp; education</div>
+  <div class="cert-grid">
+    <div class="cert-cell">
+      <div class="cert-name">DoD Secret Clearance</div>
+      <div class="cert-sub">Active</div>
+    </div>
+    <div class="cert-cell">
+      <div class="cert-name">ISC2 CC</div>
+      <div class="cert-sub">Certified in Cybersecurity</div>
+    </div>
+    <div class="cert-cell">
+      <div class="cert-name">MS &amp; BS, Computer Engineering</div>
+      <div class="cert-sub">University of Tennessee, Knoxville — GPA 3.64 // Cybersecurity concentration</div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<section id="contact">
+  <div class="section-label">// Get in touch</div>
+  <div class="contact-block">
+    <div>
+      <div class="contact-heading">Let's<br><span>connect.</span></div>
+      <p class="contact-sub">Reach out via email or connect on LinkedIn.</p>
+    </div>
+    <div>
+      <ul class="links-list">
+        <li><a href="mailto:clay@shubertnetworks.com">clay@shubertnetworks.com <span class="link-arrow">↗</span></a></li>
+        <li><a href="https://www.linkedin.com/in/clayshubert" target="_blank">LinkedIn <span class="link-arrow">↗</span></a></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span>© 2026 Clay Shubert</span>
+  <span>ShubertNetworks</span>
+</footer>
+
+</body>
+</html>
