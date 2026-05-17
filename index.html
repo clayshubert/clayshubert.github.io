@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>@ayeeclay - ClayShubert</title>
+<title>ShubertNetworks</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@400;600;800&display=swap" rel="stylesheet">
 <style>
@@ -14,7 +14,6 @@
   }
   body { background: var(--bg); color: var(--text); font-family: var(--mono); font-size: 14px; line-height: 1.6; min-height: 100vh; }
 
-  /* NAV */
   nav { position: sticky; top: 0; z-index: 100; background: var(--bg); border-bottom: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; padding: 1rem 2rem; }
   .nav-logo { font-family: var(--heading); font-weight: 800; font-size: 18px; letter-spacing: -0.5px; text-decoration: none; color: var(--text); }
   .nav-logo span { color: var(--accent); }
@@ -22,7 +21,6 @@
   nav a { color: var(--muted); text-decoration: none; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; transition: color 0.2s; }
   nav a:hover, nav a.active { color: var(--accent); }
 
-  /* HERO STRIP */
   .intro-strip { max-width: 900px; margin: 0 auto; padding: 3.5rem 2rem 2.5rem; display: grid; grid-template-columns: 1fr auto; gap: 2rem; align-items: center; border-bottom: 1px solid var(--border); }
   .intro-name { font-family: var(--heading); font-weight: 800; font-size: clamp(28px, 5vw, 48px); letter-spacing: -1.5px; line-height: 1; margin-bottom: 0.6rem; }
   .intro-name span { color: var(--accent); }
@@ -34,36 +32,37 @@
   .badge { font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); border: 1px solid var(--accent); padding: 4px 10px; border-radius: 2px; white-space: nowrap; }
   .badge-muted { border-color: var(--border); color: var(--muted); }
 
-  /* LAYOUT */
   .main-layout { max-width: 900px; margin: 0 auto; padding: 3rem 2rem; display: grid; grid-template-columns: 1fr 260px; gap: 3rem; align-items: start; }
 
-  /* FEED */
   .feed-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 1.5rem; }
   .section-label { font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); }
-  .filter-tabs { display: flex; gap: 0; }
-  .filter-tab { font-family: var(--mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; padding: 5px 12px; background: transparent; border: 1px solid var(--border); color: var(--muted); cursor: pointer; transition: all 0.15s; margin-left: -1px; }
-  .filter-tab:first-child { border-radius: 2px 0 0 2px; }
-  .filter-tab:last-child { border-radius: 0 2px 2px 0; }
-  .filter-tab.active, .filter-tab:hover { background: var(--surface); color: var(--text); border-color: var(--text); z-index: 1; position: relative; }
-  .filter-tab.active { color: var(--accent); border-color: var(--accent); }
 
-  .feed { display: flex; flex-direction: column; }
-  .feed-item { padding: 1.5rem 0; border-bottom: 1px solid var(--border); cursor: pointer; }
+  /* FEED STATES */
+  .feed { display: flex; flex-direction: column; min-height: 200px; }
+  .feed-loading { display: flex; align-items: center; gap: 10px; padding: 3rem 0; color: var(--muted); font-size: 12px; }
+  .spinner { width: 16px; height: 16px; border: 2px solid var(--border); border-top-color: var(--accent); border-radius: 50%; animation: spin 0.8s linear infinite; flex-shrink: 0; }
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  .coming-soon { padding: 4rem 0; text-align: center; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+  .coming-soon-icon { font-size: 32px; margin-bottom: 1rem; opacity: 0.3; }
+  .coming-soon-title { font-family: var(--heading); font-weight: 700; font-size: 20px; color: var(--text); margin-bottom: 0.5rem; }
+  .coming-soon-sub { font-size: 12px; color: var(--muted); line-height: 1.8; max-width: 320px; margin: 0 auto 1.5rem; }
+  .coming-soon-link { font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); text-decoration: none; border: 1px solid var(--accent); padding: 8px 16px; border-radius: 2px; transition: opacity 0.2s; }
+  .coming-soon-link:hover { opacity: 0.8; }
+
+  /* FEED ITEMS */
+  .feed-item { padding: 1.5rem 0; border-bottom: 1px solid var(--border); text-decoration: none; display: block; color: inherit; }
   .feed-item:first-child { border-top: 1px solid var(--border); }
   .feed-item:hover .feed-title { color: var(--accent); }
-  .feed-meta { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.5rem; }
-  .feed-tag { font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; padding: 2px 8px; border-radius: 2px; }
-  .tag-ctf { background: rgba(232,255,60,0.1); color: var(--accent); }
-  .tag-blog { background: rgba(100,180,255,0.1); color: #64b4ff; }
-  .tag-project { background: rgba(180,100,255,0.1); color: #b464ff; }
-  .feed-date { font-size: 11px; color: var(--muted); }
-  .feed-title { font-family: var(--heading); font-weight: 600; font-size: 17px; margin-bottom: 0.4rem; transition: color 0.15s; }
-  .feed-excerpt { font-size: 12px; color: var(--muted); line-height: 1.8; margin-bottom: 0.75rem; }
-  .feed-footer { display: flex; align-items: center; justify-content: space-between; }
-  .feed-pills { display: flex; gap: 6px; flex-wrap: wrap; }
-  .pill { font-size: 10px; letter-spacing: 0.05em; text-transform: uppercase; padding: 2px 8px; border: 1px solid var(--border); color: var(--muted); border-radius: 2px; }
-  .read-more { font-size: 11px; color: var(--muted); letter-spacing: 0.06em; text-transform: uppercase; transition: color 0.15s; }
   .feed-item:hover .read-more { color: var(--accent); }
+  .feed-meta { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.5rem; flex-wrap: wrap; }
+  .feed-tag { font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; padding: 2px 8px; border-radius: 2px; background: rgba(232,255,60,0.1); color: var(--accent); }
+  .feed-date { font-size: 11px; color: var(--muted); }
+  .feed-title { font-family: var(--heading); font-weight: 600; font-size: 17px; margin-bottom: 0.4rem; transition: color 0.15s; line-height: 1.3; }
+  .feed-excerpt { font-size: 12px; color: var(--muted); line-height: 1.8; margin-bottom: 0.75rem; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+  .feed-footer { display: flex; align-items: center; justify-content: space-between; }
+  .substack-badge { font-size: 10px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); border: 1px solid var(--border); padding: 2px 8px; border-radius: 2px; }
+  .read-more { font-size: 11px; color: var(--muted); letter-spacing: 0.06em; text-transform: uppercase; transition: color 0.15s; }
 
   /* SIDEBAR */
   .sidebar { display: flex; flex-direction: column; gap: 2rem; }
@@ -73,27 +72,24 @@
   .sidebar-link:last-child { border-bottom: none; padding-bottom: 0; }
   .sidebar-link:hover { color: var(--accent); }
   .sidebar-arrow { color: var(--muted); font-size: 14px; }
-  .topic-list { display: flex; flex-direction: column; gap: 6px; }
-  .topic-row { display: flex; justify-content: space-between; align-items: center; font-size: 12px; padding: 4px 0; }
-  .topic-name { color: var(--muted); }
-  .topic-count { font-size: 10px; color: var(--accent); font-weight: 700; }
-  .topic-bar-wrap { margin-top: 4px; height: 1px; background: var(--border); }
-  .topic-bar { height: 100%; background: var(--accent); opacity: 0.4; }
+  .substack-cta { display: block; text-align: center; padding: 10px; background: rgba(232,255,60,0.06); border: 1px solid rgba(232,255,60,0.2); border-radius: 2px; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); text-decoration: none; margin-top: 0.75rem; transition: background 0.2s; }
+  .substack-cta:hover { background: rgba(232,255,60,0.12); }
+  .post-count { font-size: 11px; color: var(--muted); margin-top: 0.5rem; }
 
-  footer { border-top: 1px solid var(--border); padding: 1.5rem 2rem; display: flex; justify-content: space-between; align-items: center; font-size: 11px; color: var(--muted); letter-spacing: 0.06em; max-width: 100%; }
+  footer { border-top: 1px solid var(--border); padding: 1.5rem 2rem; display: flex; justify-content: space-between; align-items: center; font-size: 11px; color: var(--muted); letter-spacing: 0.06em; }
 
   @media (max-width: 700px) {
     .main-layout { grid-template-columns: 1fr; }
     .sidebar { display: none; }
     .intro-strip { grid-template-columns: 1fr; }
-    .intro-badge { align-items: flex-start; flex-direction: row; }
+    .intro-badge { align-items: flex-start; flex-direction: row; flex-wrap: wrap; }
   }
 </style>
 </head>
 <body>
 
 <nav>
-  <a href="index.html" class="nav-logo">Clay<span>Shubert</span></a>
+  <a href="index.html" class="nav-logo">Shubert<span>Networks</span></a>
   <ul>
     <li><a href="index.html" class="active">Feed</a></li>
     <li><a href="about.html">About</a></li>
@@ -101,91 +97,49 @@
   </ul>
 </nav>
 
-<!-- INTRO STRIP -->
 <div class="intro-strip">
   <div>
     <div class="intro-name">Clay <span>Shubert</span></div>
-    <p class="intro-bio">Security Engineer at Mercury Systems. Writing about threat intelligence, incident response, CTF challenges, and defensive security.</p>
+    <p class="intro-bio">Security Engineer at Mercury Systems. Writing about threat intelligence, incident response, CTF challenges, and defensive security in the defense &amp; aerospace space.</p>
     <div class="social-links">
       <a href="mailto:clay@shubertnetworks.com" class="social-link">Email</a>
       <a href="https://www.linkedin.com/in/clayshubert" target="_blank" class="social-link">LinkedIn</a>
-      <a href="about.html" class="social-link">About</a>
+      <a href="https://ayeeclay.substack.com" target="_blank" class="social-link">Substack</a>
+      <a href="about.html" class="social-link">About &amp; Resume</a>
     </div>
+  </div>
+  <div class="intro-badge">
+    <div class="badge">DoD Secret Clearance</div>
+    <div class="badge badge-muted">ISC2 CC</div>
+    <div class="badge badge-muted">Mercury Systems</div>
   </div>
 </div>
 
-<!-- MAIN LAYOUT -->
 <div class="main-layout">
   <div>
     <div class="feed-header">
       <div class="section-label">// Latest posts</div>
-      <div class="filter-tabs">
-        <button class="filter-tab active">All</button>
-        <button class="filter-tab">CTF</button>
-        <button class="filter-tab">Blog</button>
-        <button class="filter-tab">Projects</button>
-      </div>
     </div>
-
-    <div class="feed">
-
-      <div class="feed-item">
-        <div class="feed-meta">
-          <span class="feed-tag tag-ctf">CTF Writeup</span>
-          <span class="feed-date">Feb 2022</span>
-        </div>
-        <div class="feed-title">HackTheBox: Paper</div>
-        <p class="feed-excerpt">Paper is an easy Linux machine that features an Apache server on ports 80 and 443, which are serving the HTTP and HTTPS versions of a website respectively. The website on port 80 returns a default server webpage but the HTTP response header reveals a hidden domain. This hidden domain is running a WordPress blog, whose version is vulnerable to CVE-2019-17671. This vulnerability allows us to view the confidential information stored in the draft posts of the blog, which reveal another URL leading to an employee chat system. This chat system is based on Rocketchat. Reading through the chats we find that there is a bot running which can be queried for specific information. We can exploit the bot functionality to obtain the password of a user on the system. Further host enumeration reveals that the sudo version is vulnerable to CVE-2021-3560 and can be exploited to elevate to root privileges.</p>
-        <div class="feed-footer">
-          <div class="feed-pills">
-            <span class="pill">HackTheBox</span>
-          </div>
-          <span class="read-more">Read →</span>
-        </div>
+    <div class="feed" id="feed">
+      <div class="feed-loading" id="loading">
+        <div class="spinner"></div>
+        Fetching latest posts…
       </div>
-
-      <div class="feed-item">
-        <div class="feed-meta">
-          <span class="feed-tag tag-blog">Blog</span>
-          <span class="feed-date">May 2026</span>
-        </div>
-        <div class="feed-title">Lessons from Deploying CrowdStrike EDR</div>
-        <p class="feed-excerpt">Here's what I learned rolling out CrowdStrike across domain server, lab, and workstations systems at scale.</p>
-        <div class="feed-footer">
-          <div class="feed-pills">
-            <span class="pill">EDR</span>
-            <span class="pill">CrowdStrike</span>
-          </div>
-          <span class="read-more">Read →</span>
-        </div>
-      </div>
-     
     </div>
   </div>
 
- 
   <aside class="sidebar">
     <div class="sidebar-block">
       <div class="sidebar-label">// Quick links</div>
-      <a href="about.html" class="sidebar-link">About & experience <span class="sidebar-arrow">→</span></a>
-      <a href="about.html" class="sidebar-link">Download resume <span class="sidebar-arrow">↓</span></a>
+      <a href="about.html" class="sidebar-link">About &amp; experience <span class="sidebar-arrow">→</span></a>
+      <a href="resume.pdf" class="sidebar-link">Download resume <span class="sidebar-arrow">↓</span></a>
       <a href="https://www.linkedin.com/in/clayshubert" target="_blank" class="sidebar-link">LinkedIn <span class="sidebar-arrow">↗</span></a>
       <a href="mailto:clay@shubertnetworks.com" class="sidebar-link">clay@shubertnetworks.com <span class="sidebar-arrow">↗</span></a>
+      <a href="https://ayeeclay.substack.com" target="_blank" class="substack-cta">Subscribe on Substack ↗</a>
     </div>
-
-    <div class="sidebar-block">
-      <div class="sidebar-label">// Topics</div>
-      <div class="topic-list">
-        <div>
-          <div class="topic-row"><span class="topic-name">CTF Writeups</span><span class="topic-count">1</span></div>
-          <div class="topic-bar-wrap"><div class="topic-bar" style="width:60%"></div></div>
-        </div>
-        <div>
-          <div class="topic-row"><span class="topic-name">Endpoint / EDR</span><span class="topic-count">1</span></div>
-          <div class="topic-bar-wrap"><div class="topic-bar" style="width:45%"></div></div>
-        </div>
-     
-      </div>
+    <div class="sidebar-block" id="sidebar-meta" style="display:none">
+      <div class="sidebar-label">// Publication</div>
+      <div class="post-count" id="post-count"></div>
     </div>
   </aside>
 </div>
@@ -196,23 +150,70 @@
 </footer>
 
 <script>
-  const tabs = document.querySelectorAll('.filter-tab');
-  const items = document.querySelectorAll('.feed-item');
-  const tagMap = { 'CTF': 'tag-ctf', 'Blog': 'tag-blog', 'Projects': 'tag-project' };
+  const SUBSTACK_URL = 'https://ayeeclay.substack.com';
+  const RSS_API = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(SUBSTACK_URL + '/feed')}&api_key=public&count=20`;
 
-  tabs.forEach(tab => {
-    tab.addEventListener('click', () => {
-      tabs.forEach(t => t.classList.remove('active'));
-      tab.classList.add('active');
-      const filter = tab.textContent.trim();
-      items.forEach(item => {
-        if (filter === 'All') { item.style.display = ''; return; }
-        const hasTag = item.querySelector('.' + tagMap[filter]);
-        item.style.display = hasTag ? '' : 'none';
-      });
-    });
-  });
+  function formatDate(dateStr) {
+    const d = new Date(dateStr);
+    return d.toLocaleDateString('en-US', { month: 'short', year: 'numeric' });
+  }
+
+  function stripHtml(html) {
+    const tmp = document.createElement('div');
+    tmp.innerHTML = html;
+    return tmp.textContent || tmp.innerText || '';
+  }
+
+  function renderComingSoon() {
+    document.getElementById('feed').innerHTML = `
+      <div class="coming-soon">
+        <div class="coming-soon-icon">✦</div>
+        <div class="coming-soon-title">Posts coming soon.</div>
+        <div class="coming-soon-sub">Writing about threat intelligence, incident response, CTF writeups, and security engineering. Subscribe to get notified when the first post drops.</div>
+        <a href="${SUBSTACK_URL}" target="_blank" class="coming-soon-link">Subscribe on Substack →</a>
+      </div>`;
+  }
+
+  function renderPosts(items) {
+    if (!items || items.length === 0) { renderComingSoon(); return; }
+
+    document.getElementById('sidebar-meta').style.display = '';
+    document.getElementById('post-count').textContent = `${items.length} post${items.length !== 1 ? 's' : ''} published`;
+
+    const html = items.map(item => {
+      const excerpt = stripHtml(item.description || item.content || '').slice(0, 220).trim();
+      const date = formatDate(item.pubDate);
+      return `
+        <a class="feed-item" href="${item.link}" target="_blank" rel="noopener">
+          <div class="feed-meta">
+            <span class="feed-tag">Substack</span>
+            <span class="feed-date">${date}</span>
+          </div>
+          <div class="feed-title">${item.title}</div>
+          ${excerpt ? `<p class="feed-excerpt">${excerpt}…</p>` : ''}
+          <div class="feed-footer">
+            <span class="substack-badge">ayeeclay.substack.com</span>
+            <span class="read-more">Read on Substack →</span>
+          </div>
+        </a>`;
+    }).join('');
+
+    document.getElementById('feed').innerHTML = html;
+  }
+
+  async function loadFeed() {
+    try {
+      const res = await fetch(RSS_API);
+      if (!res.ok) throw new Error('Network error');
+      const data = await res.json();
+      if (data.status !== 'ok') throw new Error('Feed error');
+      renderPosts(data.items || []);
+    } catch (e) {
+      renderComingSoon();
+    }
+  }
+
+  loadFeed();
 </script>
-
 </body>
 </html>

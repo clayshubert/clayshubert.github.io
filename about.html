@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>@ayeeclay — Clay Shubert</title>
+<title>About — ShubertNetworks</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@400;600;800&display=swap" rel="stylesheet">
 <style>
@@ -14,11 +14,11 @@
   }
   body { background: var(--bg); color: var(--text); font-family: var(--mono); font-size: 14px; line-height: 1.6; min-height: 100vh; }
   nav { position: sticky; top: 0; z-index: 100; background: var(--bg); border-bottom: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; padding: 1rem 2rem; }
-  .nav-logo { font-family: var(--heading); font-weight: 800; font-size: 18px; letter-spacing: -0.5px; }
+  .nav-logo { font-family: var(--heading); font-weight: 800; font-size: 18px; letter-spacing: -0.5px; text-decoration: none; color: var(--text); }
   .nav-logo span { color: var(--accent); }
   nav ul { list-style: none; display: flex; gap: 2rem; }
   nav a { color: var(--muted); text-decoration: none; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; transition: color 0.2s; }
-  nav a:hover { color: var(--accent); }
+  nav a:hover, nav a.active { color: var(--accent); }
   .hero { padding: 6rem 2rem 5rem; max-width: 900px; margin: 0 auto; }
   .hero-tag { display: inline-block; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); border: 1px solid var(--accent); padding: 4px 10px; margin-bottom: 2rem; border-radius: 2px; }
   .hero h1 { font-family: var(--heading); font-weight: 800; font-size: clamp(42px, 8vw, 80px); line-height: 0.95; letter-spacing: -2px; margin-bottom: 1.5rem; }
@@ -68,16 +68,16 @@
 <body>
 
 <nav>
-  <div class="nav-logo">@ayeeclay - Clay<span>Shubert</span></div>
+  <a href="index.html" class="nav-logo">@ayeeclay — Clay<span>Shubert</span></a>
   <ul>
-    <li><a href="#about">About</a></li>
-    <li><a href="#experience">Experience</a></li>
+    <li><a href="index.html">Feed</a></li>
+    <li><a href="about.html" class="active">About</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
-</nav>x
+</nav>
 
 <div class="hero" id="about">
-  <div class="hero-tag">Security Engineer // DoD </div>
+  <div class="hero-tag">Security Engineer // DoD Secret Clearance</div>
   <h1>
     Clay Shubert<br>
     <span class="line2">secures what<br>matters most.</span>
@@ -186,6 +186,7 @@
         <li>Tiger Team contributor producing white paper on data protection and data security in Aerospace/Defense.</li>
       </ul>
     </div>
+  </div>
 </section>
 
 <hr class="divider">
@@ -217,6 +218,7 @@
       <ul class="links-list">
         <li><a href="mailto:clay@shubertnetworks.com">clay@shubertnetworks.com <span class="link-arrow">↗</span></a></li>
         <li><a href="https://www.linkedin.com/in/clayshubert" target="_blank">LinkedIn <span class="link-arrow">↗</span></a></li>
+        <li><a href="https://ayeeclay.substack.com" target="_blank">Substack <span class="link-arrow">↗</span></a></li>
       </ul>
     </div>
   </div>
